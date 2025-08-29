@@ -212,18 +212,14 @@ class _WeddingAppState extends State<WeddingApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Wedding Invitation',
-      home:
-          _showSplash
-              ? WeddingSplashScreen(
-                onAnimationComplete: () {
-                  setState(() {
-                    _showSplash = false;
-                  });
-                },
-              )
-              : WelcomeScreen(),
-    );
+    return _showSplash
+        ? WeddingSplashScreen(
+          onAnimationComplete: () {
+            setState(() {
+              _showSplash = false;
+            });
+          },
+        )
+        : const WelcomeScreen();
   }
 }
